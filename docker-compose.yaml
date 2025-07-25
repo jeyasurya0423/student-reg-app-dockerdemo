@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - /home/jayasuryam/Pictures/db:/data/db  # Mount MongoDB data to 'db' folder in Pictures
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=12345678
+    networks:
+      - school-network
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://admin:12345678@mongodb:27017/school_db?authSource=admin 
+      - ME_CONFIG_BASICAUTH=false
+      
+    networks:
+      - school-network
+
+  nodejs-app:
+    build: .
+    container_name: nodejs-app
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+    networks:
+      - school-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  school-network:
+    driver: bridge

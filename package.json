@@ -1,0 +1,19 @@
+{
+  "name": "student-enrollment",
+  "version": "1.0.0",
+  "description": "A simple app for student enrollment using Node.js, MongoDB, and Docker.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "node": "^20.19.4",
+    "server.js": "^1.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
