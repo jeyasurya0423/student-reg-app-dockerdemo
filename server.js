@@ -14,7 +14,7 @@ app.use(cors()); // This will allow all domains by default
 app.use(bodyParser.json());
 
 // MongoDB connection URI (ensure the database name is 'enroll' and the collection is 'students')
-  const mongoURI = 'mongodb://admin:12345678@localhost:27017/enroll?authSource=admin';
+  const mongoURI = 'mongodb://admin:12345678@Mongodb:27017/enroll?authSource=admin';
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
